@@ -55,6 +55,12 @@ engine = create_async_engine(
     max_overflow=20      # Allow overflow
 )
 
+# Import all models to register them with SQLModel
+from .models.user import User  # Existing model
+from .models.task import Task  # Existing model
+from .models.conversation import Conversation  # New model
+from .models.message import Message  # New model
+
 from sqlmodel import SQLModel
 
 async def get_async_session() -> AsyncSession:

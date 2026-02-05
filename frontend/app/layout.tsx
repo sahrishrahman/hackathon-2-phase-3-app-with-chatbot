@@ -5,6 +5,8 @@ import { ThemeProvider } from '@/lib/theme'
 import { ToastProvider } from '@/components/ui/Toast'
 import Header from '@/components/layout/Header'
 import PageTransition from '@/components/layout/PageTransition'
+import FloatingChatButton from '@/components/ui/FloatingChatButton'
+import { AuthProvider } from '@/components/auth/AuthContext'
 
 /**
  * T009: Configure Outfit font (Premium, Geometric)
@@ -35,16 +37,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={outfit.className}>
-        <ThemeProvider>
-          <ToastProvider>
-            <Header />
-              <main>
-                <PageTransition>
-                  {children}
-                </PageTransition>
-              </main>
-          </ToastProvider>
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>
+            <ToastProvider>
+              <Header />
+                <main>
+                  <PageTransition>
+                    {children}
+                  </PageTransition>
+                </main>
+              <FloatingChatButton />
+            </ToastProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   )
