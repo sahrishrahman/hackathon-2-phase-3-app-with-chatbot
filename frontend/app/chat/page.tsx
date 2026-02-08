@@ -4,7 +4,7 @@ import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import ChatInterface from '@/components/chat/ChatInterface';
-import { useAuth } from '@/components/auth/protected-route';
+import { useAuth } from '@/components/auth/AuthContext';
 import { ArrowLeft } from 'lucide-react';
 
 const ChatPage: React.FC = () => {
